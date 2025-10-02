@@ -1,0 +1,127 @@
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre mim — Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1223;
+      --bg-soft: #141836;
+      --text: #e7e9ee;
+      --muted: #b2b7c3;
+      --brand: #7c5cff;
+      --brand-2: #31d7ff;
+      --border: rgba(255,255,255,0.12);
+      --card: rgba(255,255,255,0.06);
+      --radius-lg: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: Inter, sans-serif;
+      background: linear-gradient(180deg, #0b0f20, #0f1223 40%);
+      color: var(--text);
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 40px;
+    }
+
+    .card {
+      max-width: 800px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sobre mim</h1>
+    <h2>Ola, eu sou</h2>
+        <h3>Arthur Vinicius</h3>
+
+        <img src="PINGUIM.png"alt="foto de perfil de Arthur Vinicius">
+
+
+        <h4>  ESTUDANTE </h4>
+
+        <P>
+            Gosto muito de jogar bola e de bater uma bola, mexer no computador,no tempo livre fazer questão de matermatica,
+            e obotica 214.
+
+
+        </P>
+
+        <section>
+
+
+                <h5>Tecnologias que utilizo </h5>
+
+                <uc>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Flutter</li>
+                    <li>Dart</li>
+
+                    <h5>Minhas Formações</h5>
+
+           <ol>
+            <li>Tec. em Desenvolvimento Web e de Games</li>
+            <li>ja jogou piauense no futebol</li>
+            <li>bom de matematica </li>
+            <li>Esp.em Desenvolvimento Web</li>
+            <li>Esp. em Desenvolvimento de Games</li>
+            <li>Campeão da LIFT, MDE DE MATERMATICA</li>
+            <li>Esp.na Área de computacão</li>
+
+    <div class="tags">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">Design</span>
+      <span class="tag">UI/UX</span>
+    </div>
+  </div>
+</body>
+</html>
