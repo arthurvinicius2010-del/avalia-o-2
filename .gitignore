@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+.vscode/
+.idea/
+
+# Backend (Python / Flask + SQLite)
+backend/.venv/
+__pycache__/
+*.pyc
+backend/sigoe.db

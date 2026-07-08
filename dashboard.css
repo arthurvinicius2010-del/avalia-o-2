@@ -1,0 +1,138 @@
+/* =======================================================================
+   SIGOE · dashboard.css
+   Estilos específicos do Dashboard, cartões de estatística, gráficos,
+   linha do tempo, calendário, galeria e demais widgets.
+   ======================================================================= */
+
+/* ---------- Grid de estatísticas ---------- */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 22px;
+}
+.stat-card {
+  position: relative; overflow: hidden; padding: 20px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.stat-card .stat-ic {
+  width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center;
+  color: #fff; font-size: 21px; margin-bottom: 14px;
+}
+.stat-card .stat-value { font-size: 30px; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
+.stat-card .stat-label { color: var(--text-muted); font-size: 12.5px; margin-top: 6px; }
+.stat-card .stat-trend { position: absolute; top: 18px; right: 18px; font-size: 12px; font-weight: 600; }
+.stat-card .stat-trend.up { color: var(--green-500); }
+.stat-card .stat-trend.down { color: var(--red-500); }
+.stat-card::after {
+  content: ''; position: absolute; right: -30px; bottom: -30px; width: 120px; height: 120px;
+  border-radius: 50%; opacity: .06; background: currentColor;
+}
+.ic-blue { background: linear-gradient(135deg, var(--blue-600), var(--blue-800)); }
+.ic-red { background: linear-gradient(135deg, var(--red-500), var(--red-600)); }
+.ic-green { background: linear-gradient(135deg, #22c55e, #15803d); }
+.ic-amber { background: linear-gradient(135deg, #fbbf24, #d97706); }
+.ic-violet { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.ic-cyan { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+
+/* ---------- Grid do dashboard ---------- */
+.dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-bottom: 22px; }
+.dash-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.chart-box { position: relative; height: 300px; }
+.chart-box.sm { height: 240px; }
+
+/* ---------- Linha do tempo ---------- */
+.timeline { position: relative; padding-left: 26px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding: 0 0 20px 6px; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -22px; top: 3px; width: 12px; height: 12px;
+  border-radius: 50%; background: var(--primary); border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--primary);
+}
+.timeline-item.grave::before { background: var(--red-500); box-shadow: 0 0 0 2px var(--red-500); }
+.timeline-item.media::before { background: var(--amber-500); box-shadow: 0 0 0 2px var(--amber-500); }
+.timeline-item.leve::before { background: var(--green-500); box-shadow: 0 0 0 2px var(--green-500); }
+.timeline-item .tl-time { font-size: 11.5px; color: var(--text-muted); }
+.timeline-item .tl-title { font-weight: 600; margin: 2px 0; }
+.timeline-item .tl-desc { font-size: 13px; color: var(--text-soft); }
+
+/* ---------- Lista simples ---------- */
+.list { display: flex; flex-direction: column; }
+.list-item { display: flex; align-items: center; gap: 12px; padding: 12px 4px; border-bottom: 1px solid var(--border); }
+.list-item:last-child { border-bottom: none; }
+.list-item .li-main { flex: 1; min-width: 0; }
+.list-item .li-main strong { display: block; font-size: 13.5px; }
+.list-item .li-main small { color: var(--text-muted); font-size: 12px; }
+.rank-num { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; font-weight: 700; font-size: 12px; background: var(--surface-3); color: var(--text-soft); flex: none; }
+.rank-num.top { background: var(--red-600); color: #fff; }
+
+/* ---------- Avisos ---------- */
+.notice { display: flex; gap: 12px; padding: 12px; border-radius: 11px; background: var(--surface-2); margin-bottom: 10px; }
+.notice .ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: #fff; flex: none; }
+.notice strong { font-size: 13.5px; }
+.notice small { color: var(--text-muted); }
+
+/* ---------- Calendário ---------- */
+.calendar { user-select: none; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-dow { text-align: center; font-size: 11.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; padding: 6px 0; }
+.cal-cell {
+  min-height: 82px; border: 1px solid var(--border); border-radius: 10px; padding: 7px;
+  background: var(--surface-2); font-size: 12px; position: relative; transition: var(--transition);
+}
+.cal-cell.out { opacity: .4; }
+.cal-cell.today { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+.cal-cell .cal-num { font-weight: 700; }
+.cal-event { margin-top: 4px; font-size: 10.5px; padding: 2px 6px; border-radius: 6px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cal-event.prova { background: var(--blue-600); }
+.cal-event.feriado { background: var(--red-600); }
+.cal-event.evento { background: var(--green-500); }
+.cal-event.reuniao { background: var(--amber-500); }
+
+/* ---------- Galeria ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.gallery-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-sm); transition: var(--transition); }
+.gallery-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.gallery-card .g-img { height: 150px; background: var(--surface-3); background-size: cover; background-position: center; display: grid; place-items: center; color: var(--text-muted); font-size: 32px; }
+.gallery-card .g-info { padding: 12px 14px; }
+.gallery-card .g-info strong { font-size: 14px; }
+.gallery-card .g-info small { color: var(--text-muted); display: block; }
+
+/* ---------- Perfil do aluno / histórico ---------- */
+.profile-head { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.profile-photo { width: 92px; height: 92px; border-radius: 18px; object-fit: cover; border: 1px solid var(--border); background: var(--surface-3); display: grid; place-items: center; color: var(--text-muted); font-size: 30px; }
+.profile-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 8px; }
+.profile-meta div { font-size: 13px; }
+.profile-meta span { color: var(--text-muted); display: block; font-size: 11.5px; }
+
+/* Filtros em linha */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 18px; }
+.filter-bar .field { min-width: 150px; }
+.filter-bar .field select, .filter-bar .field input { height: 40px; }
+
+/* Config layout */
+.config-grid { display: grid; grid-template-columns: 220px 1fr; gap: 20px; }
+.config-tabs { display: flex; flex-direction: column; gap: 4px; }
+.config-tab { display: flex; align-items: center; gap: 10px; padding: 11px 13px; border-radius: 10px; color: var(--text-soft); font-weight: 500; cursor: pointer; }
+.config-tab:hover { background: var(--surface-2); }
+.config-tab.active { background: var(--primary); color: #fff; }
+.switch { position: relative; width: 46px; height: 26px; flex: none; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch .slider { position: absolute; inset: 0; background: var(--border); border-radius: 999px; transition: var(--transition); }
+.switch .slider::before { content: ''; position: absolute; width: 20px; height: 20px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: var(--transition); }
+.switch input:checked + .slider { background: var(--primary); }
+.switch input:checked + .slider::before { transform: translateX(20px); }
+.setting-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.setting-row:last-child { border-bottom: none; }
+.setting-row .s-label strong { display: block; font-size: 14px; }
+.setting-row .s-label small { color: var(--text-muted); }
+
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-grid-3 { grid-template-columns: 1fr; }
+  .config-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
